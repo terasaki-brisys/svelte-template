@@ -1,0 +1,22 @@
+{
+  "name": "SvelteKit Template (Node22)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "svelte.svelte-vscode",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  },
+
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": { "label": "SvelteKit dev server" }
+  },
+
+  "remoteUser": "node"
+}
