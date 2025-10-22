@@ -2,10 +2,8 @@
   "release-type": "node",
   "include-component-in-tag": false,
   "packages": {
-    "app": {
-      "extra-files": [
-        "release-please-config.json"
-      ]
+    ".": {
+      "package-name": "svelte-template"
     }
   }
 }
