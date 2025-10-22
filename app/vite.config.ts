@@ -12,6 +12,7 @@ export default defineConfig({
       outdir: './src/lib/paraglide'
     })
   ],
+  base: process.env.NODE_ENV === 'production' ? '/svelte-template/' : '/',
   server: {
     host: '0.0.0.0',
     port: 5173
