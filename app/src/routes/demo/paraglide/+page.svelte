@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from '$app/paths';
   import { setLocale } from '$lib/paraglide/runtime';
   import { m } from '$lib/paraglide/messages.js';
 </script>
@@ -85,7 +86,7 @@
         <!-- ナビゲーション -->
         <div class="flex items-center justify-between border-t border-gray-200 pt-6">
           <a
-            href="/demo"
+            href="{base}/demo"
             class="inline-flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 hover:text-gray-800"
           >
             <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,7 +100,7 @@
             デモページに戻る
           </a>
           <a
-            href="/"
+            href="{base}/"
             class="inline-flex items-center px-4 py-2 text-indigo-600 transition-colors duration-200 hover:text-indigo-800"
           >
             <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
