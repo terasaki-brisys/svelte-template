@@ -1,3 +1,7 @@
+<script>
+  import { base } from '$app/paths';
+</script>
+
 <div
   class="flex min-h-screen items-center justify-center bg-linear-to-br from-purple-50 to-pink-100 p-4"
 >
@@ -20,7 +24,7 @@
 
         <div class="grid gap-4">
           <a
-            href="/demo/paraglide"
+            href="{base}/demo/paraglide"
             class="group block rounded-xl border border-blue-200 bg-linear-to-r from-blue-50 to-indigo-50 p-6 transition-all duration-200 hover:border-blue-300 hover:shadow-lg"
           >
             <div class="flex items-center justify-between">
@@ -51,7 +55,7 @@
 
         <div class="mt-8 border-t border-gray-200 pt-6">
           <a
-            href="/"
+            href="{base}/"
             class="inline-flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 hover:text-gray-800"
           >
             <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

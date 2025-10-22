@@ -1,3 +1,7 @@
+<script>
+  import { base } from '$app/paths';
+</script>
+
 <div
   class="flex min-h-screen items-center justify-center bg-linear-to-br from-blue-50 to-indigo-100 p-4"
 >
@@ -34,13 +38,13 @@
 
         <div class="flex flex-col justify-center gap-3 sm:flex-row">
           <a
-            href="/demo"
+            href="{base}/demo"
             class="inline-flex items-center rounded-lg border border-indigo-300 px-4 py-2 font-medium text-indigo-700 transition-colors duration-200 hover:bg-indigo-50"
           >
             デモページ
           </a>
           <a
-            href="/demo/paraglide"
+            href="{base}/demo/paraglide"
             class="inline-flex items-center rounded-lg border border-green-300 px-4 py-2 font-medium text-green-700 transition-colors duration-200 hover:bg-green-50"
           >
             多言語デモ
