@@ -8,6 +8,45 @@ SvelteKit minimal template with TypeScript, Prettier, ESLint, Vitest, TailwindCS
 
 This project is configured for automatic deployment to GitHub Pages.
 
+## 📦 Automated Releases
+
+This project uses [Release Please](https://github.com/googleapis/release-please) for automated versioning and CHANGELOG generation.
+
+### How it works
+
+1. **Commit with Conventional Commits format**:
+   ```bash
+   git commit -m "feat: add new feature"
+   git commit -m "fix: resolve bug"
+   git commit -m "docs: update documentation"
+   ```
+
+2. **Release Please automatically**:
+   - Creates Release PRs based on commit messages
+   - Updates version in `app/package.json`
+   - Generates `CHANGELOG.md`
+   - Creates GitHub releases with tags
+
+### Commit Types
+
+- `feat:` - New features (bumps minor version)
+- `fix:` - Bug fixes (bumps patch version)
+- `docs:` - Documentation changes
+- `style:` - Code style changes
+- `refactor:` - Code refactoring
+- `test:` - Test additions/modifications
+- `chore:` - Other changes
+- `BREAKING CHANGE:` - Breaking changes (bumps major version)
+
+### GitHub Repository Settings Required
+
+To enable Release Please, configure the following in your repository settings:
+
+1. Go to **Settings** → **Actions** → **General**
+2. Under **Workflow permissions**:
+   - ✅ Select **Read and write permissions**
+   - ✅ Check **Allow GitHub Actions to create and approve pull requests**
+
 ### Setup Steps
 
 1. **GitHub Repository Settings**
