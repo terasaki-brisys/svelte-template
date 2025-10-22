@@ -3,6 +3,7 @@
   "packages": {
     "app": {
       "release-type": "node",
+      "path": "app",
       "package-name": "svelte-template"
     }
   }
