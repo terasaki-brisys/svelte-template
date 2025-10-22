@@ -6,6 +6,45 @@ SvelteKit minimal template with TypeScript, Prettier, ESLint, Vitest, TailwindCS
 
 このプロジェクトはGitHub Pagesで自動デプロイされるように設定されています。
 
+## 📦 自動リリース
+
+このプロジェクトは [Release Please](https://github.com/googleapis/release-please) を使用して、自動バージョニングとCHANGELOG生成を行います。
+
+### 動作の仕組み
+
+1. **Conventional Commits形式でコミット**:
+   ```bash
+   git commit -m "feat: 新機能を追加"
+   git commit -m "fix: バグを修正"
+   git commit -m "docs: ドキュメントを更新"
+   ```
+
+2. **Release Pleaseが自動的に**:
+   - コミットメッセージに基づいてRelease PRを作成
+   - `app/package.json`のバージョンを更新
+   - `CHANGELOG.md`を生成
+   - タグ付きのGitHubリリースを作成
+
+### コミットタイプ
+
+- `feat:` - 新機能（マイナーバージョンアップ）
+- `fix:` - バグ修正（パッチバージョンアップ）
+- `docs:` - ドキュメント変更
+- `style:` - コードスタイル変更
+- `refactor:` - リファクタリング
+- `test:` - テスト追加・修正
+- `chore:` - その他の変更
+- `BREAKING CHANGE:` - 破壊的変更（メジャーバージョンアップ）
+
+### GitHubリポジトリ設定が必要
+
+Release Pleaseを有効にするには、リポジトリ設定で以下を設定してください：
+
+1. **Settings** → **Actions** → **General** に移動
+2. **Workflow permissions** で：
+   - ✅ **Read and write permissions** を選択
+   - ✅ **Allow GitHub Actions to create and approve pull requests** にチェック
+
 ### セットアップ手順
 
 1. **GitHubリポジトリの設定**
