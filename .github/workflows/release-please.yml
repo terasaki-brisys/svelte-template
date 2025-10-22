@@ -15,6 +15,5 @@ jobs:
       - uses: googleapis/release-please-action@v4
         with:
           release-type: node
-          package-name: svelte-template
           token: ${{ secrets.GITHUB_TOKEN }}
           path: app
