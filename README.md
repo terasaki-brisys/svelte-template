@@ -1,80 +1,81 @@
 # svelte-template
 
+[日本語版はこちら / Japanese version](README-JA.md)
+
 SvelteKit minimal template with TypeScript, Prettier, ESLint, Vitest, TailwindCSS, and Paraglide (i18n) support.
 
-## 🚀 GitHub Pages デプロイ
+## 🚀 GitHub Pages Deployment
 
-このプロジェクトはGitHub Pagesで自動デプロイされるように設定されています。
+This project is configured for automatic deployment to GitHub Pages.
 
-### セットアップ手順
+### Setup Steps
 
-1. **GitHubリポジトリの設定**
-   - リポジトリの Settings > Pages に移動
-   - Source を "GitHub Actions" に設定
+1. **GitHub Repository Settings**
+   - Go to repository Settings > Pages
+   - Set Source to "GitHub Actions"
 
-2. **自動デプロイ**
-   - `main` ブランチにプッシュすると自動的にデプロイされます
-   - GitHub Actions ワークフローが実行され、ビルドとデプロイが行われます
+2. **Automatic Deployment**
+   - Pushes to the `main` branch will automatically trigger deployment
+   - GitHub Actions workflow will handle build and deployment
 
-3. **手動デプロイ**
-   - GitHub の Actions タブから "Deploy to GitHub Pages" ワークフローを手動実行できます
+3. **Manual Deployment**
+   - You can manually run the "Deploy to GitHub Pages" workflow from the GitHub Actions tab
 
-## 💻 開発環境のセットアップ
+## 💻 Development Environment Setup
 
-### Dev Container での開発（推奨）
+### Dev Container Development (Recommended)
 
-このプロジェクトはDev Container対応済みです。VS CodeとDockerがあれば、すぐに開発を始められます。
+This project is Dev Container ready. With VS Code and Docker, you can start developing immediately.
 
 ```bash
-# 1. リポジトリをクローン
-git clone https://github.com/[ユーザー名]/svelte-template.git
+# 1. Clone the repository
+git clone https://github.com/[username]/svelte-template.git
 cd svelte-template
 
-# 2. VS Codeで開く
+# 2. Open with VS Code
 code .
 
-# 3. VS Codeで「Dev Container: Reopen in Container」を実行
-# （コマンドパレット: Ctrl+Shift+P / Cmd+Shift+P）
+# 3. Run "Dev Container: Reopen in Container" in VS Code
+# (Command Palette: Ctrl+Shift+P / Cmd+Shift+P)
 ```
 
-Dev Containerには以下が自動で設定されます：
+Dev Container automatically configures:
 - Node.js 22
-- 必要なVS Code拡張機能（Svelte、Prettier、ESLint、TailwindCSS）
-- ポート転送（5173番ポート）
+- Required VS Code extensions (Svelte, Prettier, ESLint, TailwindCSS)
+- Port forwarding (port 5173)
 
-### ローカル開発
+### Local Development
 
 ```bash
-# 開発サーバーの起動
+# Start development server
 cd app
 pnpm install
 pnpm dev
 
-# プロダクションビルド（GitHub Pages用）
+# Production build (for GitHub Pages)
 pnpm run build:gh-pages
 ```
 
-**注意**: `pnpm dev`コマンドには`--host 0.0.0.0`が自動で含まれているため、Dev ContainerやDocker環境からでも外部アクセスが可能です。
+**Note**: The `pnpm dev` command automatically includes `--host 0.0.0.0`, enabling external access from Dev Container or Docker environments.
 
-## 🌐 多言語対応
+## 🌐 Internationalization
 
-このプロジェクトはParaglideを使用して多言語対応されています：
-- 英語 (en)
-- 日本語 (ja)
+This project uses Paraglide for internationalization support:
+- English (en)
+- Japanese (ja)
 
-メッセージファイルの編集：
-- `app/messages/en.json` - 英語
-- `app/messages/ja.json` - 日本語
+Edit message files:
+- `app/messages/en.json` - English
+- `app/messages/ja.json` - Japanese
 
-デモページ：`/demo/paraglide`
+Demo page: `/demo/paraglide`
 
-## 🛠️ 技術スタック
+## 🛠️ Tech Stack
 
-- **フレームワーク**: SvelteKit
-- **言語**: TypeScript
-- **スタイリング**: TailwindCSS
-- **国際化**: Paraglide
-- **テスト**: Vitest + Playwright
-- **リンター**: ESLint + Prettier
-- **デプロイ**: GitHub Pages (Static Adapter)
-
+- **Framework**: SvelteKit
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **Internationalization**: Paraglide
+- **Testing**: Vitest + Playwright
+- **Linting**: ESLint + Prettier
+- **Deployment**: GitHub Pages (Static Adapter)
