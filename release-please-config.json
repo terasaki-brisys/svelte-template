@@ -1,8 +1,7 @@
 {
   "release-type": "node",
+  "include-component-in-tag": false,
   "packages": {
-    "app": {
-      "include-component-in-tag": false
-    }
+    "app": {}
   }
 }
