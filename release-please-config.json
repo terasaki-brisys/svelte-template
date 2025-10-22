@@ -2,6 +2,10 @@
   "release-type": "node",
   "include-component-in-tag": false,
   "packages": {
-    "app": {}
+    "app": {
+      "extra-files": [
+        "release-please-config.json"
+      ]
+    }
   }
 }
