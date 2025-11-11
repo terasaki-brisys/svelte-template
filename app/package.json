@@ -13,7 +13,13 @@
     "lint": "prettier --check . && eslint .",
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run",
-    "build:gh-pages": "NODE_ENV=production npm run build"
+    "build:gh-pages": "NODE_ENV=production npm run build",
+    "supabase:migration:new": "cd supabase && npx supabase migration new",
+    "supabase:status": "dotenv -e .env.local -- sh -c 'cd supabase && npx supabase status'",
+    "supabase:db:reset": "dotenv -e .env.local -- sh -c 'cd supabase && npx supabase db reset --linked'",
+    "supabase:db:push": "dotenv -e .env.local -- sh -c 'cd supabase && npx supabase db push --linked'",
+    "supabase:functions:deploy": "dotenv -e .env.local -- sh -c 'cd supabase && npx supabase functions deploy \"$@\"' --",
+    "supabase:gen:types": "dotenv -e .env.local -- sh -c 'cd supabase && npx supabase gen types typescript --linked > ../src/lib/types/supabase.ts'"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.0",
@@ -25,6 +31,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "@types/node": "^22",
     "@vitest/browser": "^3.2.4",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.12.4",
@@ -41,5 +48,8 @@
     "vite": "^7.1.7",
     "vitest": "^3.2.4",
     "vitest-browser-svelte": "^1.1.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.80.0"
   }
 }

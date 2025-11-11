@@ -4,6 +4,18 @@
 
 SvelteKit minimal template with TypeScript, Prettier, ESLint, Vitest, TailwindCSS, and Paraglide (i18n) support.
 
+## 🎯 Project
+
+This template includes an **Event Scheduler** application:
+
+- 📅 Schedule optimal dates from multiple candidates
+- 🔗 Easy participant invitation via share URLs
+- 📊 Real-time result aggregation
+- 💾 Supabase (PostgreSQL + Edge Functions) backend
+- 🌐 Hosted on GitHub Pages
+
+For detailed setup instructions, see [SETUP.md](SETUP.md).
+
 ## 🚀 GitHub Pages Deployment
 
 This project is configured for automatic deployment to GitHub Pages.
@@ -82,6 +94,51 @@ Dev Container automatically configures:
 - Node.js 22
 - Required VS Code extensions (Svelte, Prettier, ESLint, TailwindCSS)
 - Port forwarding (port 5173)
+
+### Supabase Cloud Setup
+
+This project uses Supabase Cloud for backend services. Follow these steps to set up your development environment:
+
+```bash
+# 1. Copy environment template
+cd app
+cp env.example .env.local
+
+# 2. Create a new Supabase project at https://app.supabase.com
+# 3. Copy your project URL and anon key to .env.local:
+#    VITE_SUPABASE_URL=https://your-project-id.supabase.co
+#    VITE_SUPABASE_ANON_KEY=your-supabase-anon-key-here
+# 4. Login to Supabase (skip if SUPABASE_ACCESS_TOKEN is set)
+npx supabase login
+# 5. Link to your Supabase project
+npx supabase link --project-ref <project_id>
+# 6. Apply database migrations (from app directory)
+npm run supabase:db:push
+# 7. Deploy Edge Functions
+npm run supabase:functions:deploy
+```
+
+### Database Management
+
+**Reset all data (keep schema):**
+
+To clear all data from the database while keeping the schema intact, run the following SQL in [Supabase SQL Editor](https://supabase.com/dashboard):
+
+```sql
+TRUNCATE TABLE public.events CASCADE;
+```
+
+This will delete all events, options, participants, votes, and links data.
+
+**Reset schema and data:**
+
+To completely reset the database including schema:
+
+```bash
+npm run supabase:db:reset
+```
+
+⚠️ This will delete everything and reapply all migrations from scratch.
 
 ### Local Development
 
