@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0](https://github.com/terasaki-brisys/svelte-template/compare/v0.0.2...v0.1.0) (2025-11-11)
+
+
+### Features
+
+* add event-scheduler with supabase ([92df30d](https://github.com/terasaki-brisys/svelte-template/commit/92df30ddfac108054d73e827a5884df5d0490e51))
+* add event-scheduler with supabase ([4115366](https://github.com/terasaki-brisys/svelte-template/commit/4115366bd7a5786efecb2f2cb406f4ad1a020ea2))
+
 ## [0.0.2](https://github.com/terasaki-brisys/svelte-template/compare/v0.0.1...v0.0.2) (2025-10-22)
 
 
