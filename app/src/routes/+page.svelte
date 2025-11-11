@@ -49,6 +49,12 @@
           >
             多言語デモ
           </a>
+          <a
+            href="{base}/scheduler"
+            class="inline-flex items-center rounded-lg border border-purple-300 px-4 py-2 font-medium text-purple-700 transition-colors duration-200 hover:bg-purple-50"
+          >
+            Scheduler
+          </a>
         </div>
       </div>
 

@@ -1,7 +1,8 @@
 {
   "name": "SvelteKit Template (Node22)",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
-
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -19,5 +20,8 @@
     "5173": { "label": "SvelteKit dev server" }
   },
 
-  "remoteUser": "node"
+  "remoteUser": "node",
+  
+  "postCreateCommand": "npm install",
+  "shutdownAction": "stopCompose"
 }

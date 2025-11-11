@@ -1,1 +1,4 @@
 .pnpm-store
+# Supabase CLI temp data
+supabase/.temp/
+node_modules/

@@ -1,0 +1,20 @@
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/javascript-node:22
+    volumes:
+      - ..:/workspace:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: /workspace
+    command: sleep infinity
+    ports:
+      - "5173:5173"
+    user: node
+    environment:
+      - NODE_ENV=development
+    # macOS/Linux両対応のDNS設定
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    dns_opt:
+      - "timeout:2"
+      - "attempts:2"
