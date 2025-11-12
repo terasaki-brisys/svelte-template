@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.1](https://github.com/terasaki-brisys/svelte-template/compare/v0.1.0...v0.1.1) (2025-11-12)
+
+
+### Bug Fixes
+
+* fix build error ([b0c3591](https://github.com/terasaki-brisys/svelte-template/commit/b0c359164c3893dbc492884ca554913df7f8a76b))
+* fix build error ([3c57e59](https://github.com/terasaki-brisys/svelte-template/commit/3c57e599f20af2971a8f6b5fb5c7bc777aa3543a))
+* The following routes were marked as prerenderable, but were not prerendered because they were not found while crawling your app ([b45e23d](https://github.com/terasaki-brisys/svelte-template/commit/b45e23d89bd80e235f08d458db0a7afd8cd5b1ca))
+
 ## [0.1.0](https://github.com/terasaki-brisys/svelte-template/compare/v0.0.2...v0.1.0) (2025-11-11)
 
 
