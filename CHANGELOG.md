@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2](https://github.com/terasaki-brisys/svelte-template/compare/v0.1.1...v0.1.2) (2025-11-12)
+
+
+### Bug Fixes
+
+* delpoy edge function ([0c91947](https://github.com/terasaki-brisys/svelte-template/commit/0c9194786c0d694815feb81251d237e2fe08a41b))
+* delpoy edge function ([d870587](https://github.com/terasaki-brisys/svelte-template/commit/d870587f47bd8cc30d1f330a8b0ddd87cf199bae))
+
 ## [0.1.1](https://github.com/terasaki-brisys/svelte-template/compare/v0.1.0...v0.1.1) (2025-11-12)
 
 
