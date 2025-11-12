@@ -43,6 +43,7 @@ jobs:
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          PUBLIC_USE_MOCK_API: ${{ env.PUBLIC_USE_MOCK_API }}
         run: |
           cd app
           NODE_ENV=production pnpm run build
