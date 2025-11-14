@@ -5,6 +5,7 @@ interface CreateEventRequest {
   title: string;
   memo?: string;
   dates: string[]; // YYYY-MM-DD
+  base_path?: string; // Base path for GitHub Pages (e.g., '/svelte-template')
 }
 
 Deno.serve(async (req) => {
@@ -23,7 +24,7 @@ Deno.serve(async (req) => {
     const body = await parseJsonBody<CreateEventRequest>(req);
     validateRequired(body, ['title', 'dates']);
     
-    const { title, memo, dates } = body;
+    const { title, memo, dates, base_path = '' } = body;
     
     // Validate title length
     if (title.length > 200) {
@@ -111,8 +112,8 @@ Deno.serve(async (req) => {
     
     // Construct URLs
     const baseUrl = req.headers.get('origin') || 'https://yourdomain.com';
-    const adminUrl = `${baseUrl}/scheduler/e/${eventId}?k=${adminKey}`;
-    const shareUrl = `${baseUrl}/scheduler/s/${shareId}`;
+    const adminUrl = `${baseUrl}${base_path}/scheduler/e/${eventId}?k=${adminKey}`;
+    const shareUrl = `${baseUrl}${base_path}/scheduler/s/${shareId}`;
     
     // Return response
     return jsonResponse({

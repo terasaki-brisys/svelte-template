@@ -1,5 +1,6 @@
 // Mock implementation for Scheduler API
 
+import { base } from '$app/paths';
 import type {
   CreateEventRequest,
   CreateEventResponse,
@@ -37,8 +38,8 @@ export function createEventMock(data: CreateEventRequest): Promise<CreateEventRe
     event_id: mockEventId,
     share_id: mockShareId,
     admin_key: mockAdminKey,
-    admin_url: `${window.location.origin}/scheduler/e/${mockEventId}?k=${mockAdminKey}`,
-    share_url: `${window.location.origin}/scheduler/s/${mockShareId}`
+    admin_url: `${window.location.origin}${base}/scheduler/e/${mockEventId}?k=${mockAdminKey}`,
+    share_url: `${window.location.origin}${base}/scheduler/s/${mockShareId}`
   });
 }
 
