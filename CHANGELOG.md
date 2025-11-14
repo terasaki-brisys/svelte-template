@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.4](https://github.com/terasaki-brisys/svelte-template/compare/v0.1.3...v0.1.4) (2025-11-14)
+
+
+### Bug Fixes
+
+* add svelte 404 error page ([23743b6](https://github.com/terasaki-brisys/svelte-template/commit/23743b6ceac0827bdc90a7759439a0186f3bcea4))
+* add svelte 404 error page ([b2e70e7](https://github.com/terasaki-brisys/svelte-template/commit/b2e70e7f6fcab903a92f16387f8f185435e68ca7))
+
 ## [0.1.3](https://github.com/terasaki-brisys/svelte-template/compare/v0.1.2...v0.1.3) (2025-11-14)
 
 

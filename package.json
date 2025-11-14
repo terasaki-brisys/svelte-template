@@ -1,6 +1,6 @@
 {
   "name": "svelte-template",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "SvelteKit minimal template with TypeScript, Prettier, ESLint, Vitest, TailwindCSS, and Paraglide (i18n) support.",
   "repository": {
     "type": "git",
