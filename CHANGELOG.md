@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.3](https://github.com/terasaki-brisys/svelte-template/compare/v0.1.2...v0.1.3) (2025-11-14)
+
+
+### Bug Fixes
+
+* github pages 404 error ([7df5647](https://github.com/terasaki-brisys/svelte-template/commit/7df5647f855305b57d638994468089ae5f570283))
+* github pages 404 error ([bfdfda2](https://github.com/terasaki-brisys/svelte-template/commit/bfdfda26965925d3fd4d7301229a5342420da56b))
+* 動的URLに対して404となる問題 ([346ea13](https://github.com/terasaki-brisys/svelte-template/commit/346ea13461063844844afc8a7ba6e2fe82458c5f))
+
 ## [0.1.2](https://github.com/terasaki-brisys/svelte-template/compare/v0.1.1...v0.1.2) (2025-11-12)
 
 
