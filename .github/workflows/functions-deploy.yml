@@ -31,8 +31,6 @@ jobs:
           SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
         run: |
           supabase link --project-ref $SUPABASE_PROJECT_ID
-          supabase functions deploy create-event --no-verify-jwt
-          supabase functions deploy get-event --no-verify-jwt
-          supabase functions deploy upsert-participant --no-verify-jwt
-          supabase functions deploy submit-votes --no-verify-jwt
+          # Deploy all functions at once
+          supabase functions deploy --no-verify-jwt
 
