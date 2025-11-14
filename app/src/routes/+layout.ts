@@ -1,3 +1,4 @@
 // すべてのページをプリレンダリングし、SSRを無効にする
-export const prerender = true;
+// 開発環境ではプリレンダリングを無効にする
+export const prerender = process.env.NODE_ENV === 'production';
 export const ssr = false;

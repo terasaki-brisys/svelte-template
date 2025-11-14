@@ -6,11 +6,11 @@ const config = {
   // Consult https://svelte.dev/docs/kit/integrations
   // for more information about preprocessors
   preprocess: vitePreprocess(),
-  kit: { 
+  kit: {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: '404.html',
+      fallback: 'index.html',
       precompress: false,
       strict: true
     }),

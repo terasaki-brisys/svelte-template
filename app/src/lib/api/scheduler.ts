@@ -2,6 +2,7 @@
 
 import { getSupabaseClient } from '$lib/supabase';
 import { PUBLIC_USE_MOCK_API } from '$env/static/public';
+import { base } from '$app/paths';
 import {
   createEventMock,
   getEventByShareIdMock,
@@ -79,17 +80,48 @@ export interface SubmitVotesRequest {
  * Create a new event
  */
 export async function createEvent(data: CreateEventRequest): Promise<CreateEventResponse> {
-  if (useMockApi) {
-    return createEventMock(data);
-  }
-  
-  const supabase = getSupabaseClient();
-  const { data: response, error } = await supabase.functions.invoke('create-event', {
-    body: data
-  });
+  let response: CreateEventResponse;
 
-  if (error) {
-    throw new Error(`Failed to create event: ${error.message}`);
+  if (useMockApi) {
+    response = await createEventMock(data);
+  } else {
+    const supabase = getSupabaseClient();
+    const { data: result, error } = await supabase.functions.invoke('create-event', {
+      body: {
+        ...data,
+        base_path: base // Send base path to server
+      }
+    });
+
+    if (error) {
+      throw new Error(`Failed to create event: ${error.message}`);
+    }
+
+    response = result;
+  }
+
+  // Ensure URLs include base path (fallback in case server didn't include it)
+  if (base && response.admin_url) {
+    try {
+      const adminUrlObj = new URL(response.admin_url);
+      if (!adminUrlObj.pathname.startsWith(base)) {
+        adminUrlObj.pathname = base + adminUrlObj.pathname;
+        response.admin_url = adminUrlObj.toString();
+      }
+    } catch {
+      // Invalid URL, skip
+    }
+  }
+  if (base && response.share_url) {
+    try {
+      const shareUrlObj = new URL(response.share_url);
+      if (!shareUrlObj.pathname.startsWith(base)) {
+        shareUrlObj.pathname = base + shareUrlObj.pathname;
+        response.share_url = shareUrlObj.toString();
+      }
+    } catch {
+      // Invalid URL, skip
+    }
   }
 
   return response;
@@ -102,7 +134,7 @@ export async function getEventByShareId(shareId: string): Promise<GetEventRespon
   if (useMockApi) {
     return getEventByShareIdMock(shareId);
   }
-  
+
   const supabase = getSupabaseClient();
   const { data: response, error } = await supabase.functions.invoke(`get-event/${shareId}`, {
     method: 'GET'
@@ -125,7 +157,7 @@ export async function upsertParticipant(
   if (useMockApi) {
     return upsertParticipantMock(shareId, data);
   }
-  
+
   const supabase = getSupabaseClient();
   const { data: response, error } = await supabase.functions.invoke(
     `upsert-participant/events/${shareId}/participants`,
@@ -151,7 +183,7 @@ export async function submitVotes(
   if (useMockApi) {
     return submitVotesMock(shareId, data);
   }
-  
+
   const supabase = getSupabaseClient();
   const { error } = await supabase.functions.invoke(
     `submit-votes/events/${shareId}/votes`,
@@ -165,14 +197,27 @@ export async function submitVotes(
   }
 }
 
+export interface EventStats {
+  totalParticipants: number;
+  totalVotes: number;
+  optionStats: Array<{
+    option_id: string;
+    date: string;
+    yes: number;
+    maybe: number;
+    no: number;
+    score: number;
+  }>;
+}
+
 /**
  * Get event statistics (uses getEventByShareId and calculates stats)
  */
-export async function getEventStats(shareId: string): Promise<any> {
+export async function getEventStats(shareId: string): Promise<EventStats> {
   const eventData = await getEventByShareId(shareId);
-  
+
   // Calculate statistics from event data
-  const stats = {
+  const stats: EventStats = {
     totalParticipants: eventData.participants.length,
     totalVotes: eventData.votes.length,
     optionStats: eventData.options.map(option => {
@@ -180,7 +225,7 @@ export async function getEventStats(shareId: string): Promise<any> {
       const yes = optionVotes.filter(v => v.value === 2).length;
       const maybe = optionVotes.filter(v => v.value === 1).length;
       const no = optionVotes.filter(v => v.value === 0).length;
-      
+
       return {
         option_id: option.id,
         date: option.date,
@@ -191,7 +236,7 @@ export async function getEventStats(shareId: string): Promise<any> {
       };
     }).sort((a, b) => b.score - a.score)
   };
-  
+
   return stats;
 }
 
@@ -205,7 +250,7 @@ export async function getEventByEventId(
   if (useMockApi) {
     return getEventByEventIdMock(eventId, adminKey);
   }
-  
+
   const supabase = getSupabaseClient();
   const { data: response, error } = await supabase.functions.invoke(
     `get-event-admin/${eventId}`,
@@ -231,7 +276,7 @@ export async function deleteEvent(eventId: string, adminKey: string): Promise<vo
   if (useMockApi) {
     return deleteEventMock(eventId, adminKey);
   }
-  
+
   const supabase = getSupabaseClient();
   const { error } = await supabase.functions.invoke(`delete-event/${eventId}`, {
     method: 'DELETE',
